@@ -1,0 +1,38 @@
+<?php
+
+namespace Domain\User\Catalogs\BaseUserRole;
+
+class ParentRoleCatalogItem extends UserBaseRoleCatalog
+{
+    public static function name(): string
+    {
+        return 'parent';
+    }
+
+    public function requireEmployee(): bool
+    {
+        return false;
+    }
+
+    public function requireStudent(): bool
+    {
+        return false;
+    }
+
+    public function requireConsultant(): bool
+    {
+        return false;
+    }
+
+    public function canObservePeople(): bool
+    {
+        return true;
+    }
+
+    public function availableQuizzes(): array
+    {
+        return [
+            'parent-questionnaire',
+        ];
+    }
+}

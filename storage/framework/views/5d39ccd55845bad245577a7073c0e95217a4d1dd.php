@@ -1,0 +1,24 @@
+ <?php if (isset($component)) { $__componentOriginalf197bbd0186049fba79758ec2ea9b35409704436 = $component; } ?>
+<?php $component = $__env->getContainer()->make(App\View\Components\Tables\FilterInputs\Input::class, ['id' => 'title','name' => 'title','classes' => 'col-md-4','label' => ''.e(__('Название')).'','placeholder' => ''.e(__('Название')).'','value' => ''.e(request()->title).'']); ?>
+<?php $component->withName('tables.filter-inputs.input'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php $component->withAttributes([]); ?> <?php if (isset($__componentOriginalf197bbd0186049fba79758ec2ea9b35409704436)): ?>
+<?php $component = $__componentOriginalf197bbd0186049fba79758ec2ea9b35409704436; ?>
+<?php unset($__componentOriginalf197bbd0186049fba79758ec2ea9b35409704436); ?>
+<?php endif; ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?> 
+
+ <?php if (isset($component)) { $__componentOriginalf197bbd0186049fba79758ec2ea9b35409704436 = $component; } ?>
+<?php $component = $__env->getContainer()->make(App\View\Components\Tables\FilterInputs\Input::class, ['id' => 'short_title','name' => 'short_title','classes' => 'col-md-4','label' => ''.e(__('Сокращенное название')).'','placeholder' => ''.e(__('Сокращенное название')).'','value' => ''.e(request()->short_title).'']); ?>
+<?php $component->withName('tables.filter-inputs.input'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php $component->withAttributes([]); ?> <?php if (isset($__componentOriginalf197bbd0186049fba79758ec2ea9b35409704436)): ?>
+<?php $component = $__componentOriginalf197bbd0186049fba79758ec2ea9b35409704436; ?>
+<?php unset($__componentOriginalf197bbd0186049fba79758ec2ea9b35409704436); ?>
+<?php endif; ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?> 
+<?php /**PATH /home/c41010/mentor.na4u.ru/www/resources/views/admin/orgunits/legal_forms/_index/_search.blade.php ENDPATH**/ ?>

@@ -1,0 +1,165 @@
+.login.login-1 .login-aside .aside-img {
+    min-height: 450px;
+}
+
+.login.login-1 .login-signin,
+.login.login-1 .login-signup,
+.login.login-1 .login-forgot {
+    display: none;
+}
+
+.login.login-1.login-signin-on .login-signup {
+    display: none;
+}
+
+.login.login-1.login-signin-on .login-signin {
+    display: block;
+}
+
+.login.login-1.login-signin-on .login-forgot {
+    display: none;
+}
+
+.login.login-1.login-signup-on .login-signup {
+    display: block;
+}
+
+.login.login-1.login-signup-on .login-signin {
+    display: none;
+}
+
+.login.login-1.login-signup-on .login-forgot {
+    display: none;
+}
+
+.login.login-1.login-forgot-on .login-signup {
+    display: none;
+}
+
+.login.login-1.login-forgot-on .login-signin {
+    display: none;
+}
+
+.login.login-1.login-forgot-on .login-forgot {
+    display: block;
+}
+.login.login-1 .login-aside{
+    position: relative;
+}
+.mainLogo{
+    max-width: 100px;
+    img{
+        max-width: 100%;
+        object-position: center;
+        height: 100%;
+        object-fit: contain;
+    }
+}
+.font-weight-black {
+    font-weight: 800;
+}
+.absLink{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+table.table.lk-table.clear-sticky-cols .datatable-body .font-size-h5{
+    font-size: 1rem !important;
+}
+.wrap-logo{
+    .mainLogo{
+        margin-right: 10px;
+        &:last-child{
+            margin-right: 0;
+        }
+    }
+}
+.bgImg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.login.login-1 .bgImg{
+    object-fit: cover;
+    transform: scale(-1 , 1);
+}
+.login.login-1{
+    position: relative;
+}
+
+.login.login-1 .login-aside .bgImg{
+   display: none;
+    object-fit: contain;
+    object-position: top;
+}
+.img-cover{
+    object-fit: cover;
+}
+.login.login-1 .login-aside .mainLogo{
+    max-width: 240px;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+}
+.login.login-1 .login-aside .mainLogo img{
+    max-width: 100%;
+}
+@media (min-width: 992px) {
+    .login.login-1 .login-aside {
+        //width: 100%;
+        //max-width: 600px;
+        height: auto;
+    }
+    .login.login-1 .login-aside .bgImg{
+        display: block;
+    }
+
+    .login.login-1 .login-content .login-form {
+        width: 100%;
+        max-width: 450px;
+    }
+}
+@media (min-width: 600px){
+    .login.login-1 .login-content {
+        width: 100%;
+        //max-width: 500px;
+    }
+    //.login.login-1{
+    //    flex-direction: row !important;
+    //}
+    //.login.login-1 .login-aside .bgImg{
+    //    display: block !important;
+    //}
+    //.login.login-1 .login-aside .wrapLogo {
+    //    display: none !important;
+    //}
+    //.login.login-1 .login-aside {
+    //    width: 50%;
+    //    max-width: 450px;
+    //}
+}
+@media (min-width: 992px) and (max-width: 1399.98px) {
+
+}
+
+@media (max-width: 991.98px) {
+    .login.login-1 .login-content .login-form {
+        width: 100%;
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .login.login-1 .aside-img {
+        min-height: 300px !important;
+        background-size: 400px;
+    }
+    .login.login-1 .login-content .login-form {
+        width: 100%;
+        max-width: 100%;
+    }
+}

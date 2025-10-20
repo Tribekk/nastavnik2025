@@ -1,0 +1,2 @@
+
+<?php echo $__env->make('layout.base', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/c41010/mentor.na4u.ru/www/resources/views/layout/page.blade.php ENDPATH**/ ?>

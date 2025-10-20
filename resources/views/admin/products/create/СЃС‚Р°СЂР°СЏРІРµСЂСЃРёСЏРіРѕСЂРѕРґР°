@@ -1,0 +1,139 @@
+@extends ('layout.page')
+
+@section('subheader')
+    <x-subheader title="Создание новых проектов"/>
+
+@endsection
+
+@section('content')
+    <div class="d-flex flex-column-fluid">
+        <div class="container">
+
+ <x-card>
+            <x-slot name="title">{{ __('Проекты') }}</x-slot>
+            <x-slot name="toolbar">
+                <x-inputs.button-link type="btn-outline-success" link="{{ route('product.storeLoc') }}" title="{{ __('Новые Проекты') }}" icon="la-plus"/>
+            </x-slot>
+            <x-tables.status/>
+
+            <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th scope="col">№</th>
+
+            <th scope="col">Название проекта (организация)</th>
+            <th scope="col">Локации</th>
+            <th scope="col">Искомые профили (потребности)</th>
+            <th scope="col">Учебный год (сроки реализации)</th>
+            <th scope="col">Количество компаний</th>
+            <th scope="col">Количество структурных подразделений</th>
+            <th scope="col">Результаты отбора (воронка и дашборд по ключевым показателям)</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        @foreach($products as $item)
+        <tr>
+            <td>
+            <a href="{{ route('products.edit', $item->id) }}" class="font-weight-bolder link">{{ $item->id }}
+            </a>
+            </td>
+
+
+            <td>@if (($item->org) == 0)
+                <a href=" " class="font-weight-bolder link"> Без названия </a>
+
+                @else
+                <a href="{{ route('admin.orgunits.edit', $item->org) }}" class="font-weight-bolder link">
+                    {{ $ExternalOrgunit->find($item->org)->where('id', $item->org)->value('short_title') }}
+                </a>
+                @endif
+            </td>
+            <td>
+                {{ $title->where('code', $item->loc)->value('name') }} {{ $title->first()->where('code', $item->loc)->value('socr')  }}
+                <a href=" " class="font-weight-bolder link">{{ $title->where('code', $item->sity)->value('name') }}</a>
+                @if (strpos($item->sity, ','))
+                @foreach (json_decode($item->sity) as $sc) <a href=" " class="font-weight-bolder link"> {{ $title->where('code', $sc)->value('name') }} @endforeach </a></td>
+                @else
+
+                <a href=" " class="font-weight-bolder link">{{ $title->where('code', $item->sity)->value('name') }} ( {{ $item->potr }} )</a>
+                @endif
+            </td>
+            <td>
+                <a href=" " class="font-weight-bolder link">
+                    {{ $item->napr }}
+                </a>
+            </td>
+
+            <td>{{ $item->god }}</td>
+
+            <td>
+                @if (  $item->scul == null ) Вы выбрали все компании в этой локации @else {{count(json_decode($item->scul))}}
+                @foreach (json_decode($item->scul) as $sc)
+                <a href=" " class="font-weight-bolder link">
+                    {{ $School->find($sc)->where('id', $sc)->value('short_title') }}
+                </a>
+
+                 @endforeach
+
+                @endif
+            </td>
+            <td> {{var_dump($item->name)}}
+                @if (strpos($item->name, ','))
+                @foreach (json_decode($item->name) as $sc)
+                <a href=" " class="font-weight-bolder link">
+                {{$classes->first()->where('id', $sc)->value('number')}}
+                {{$classes->first()->where('id', $sc)->value('letter')}}
+                {{$classes->first()->where('id', $sc)->value('year')}}
+                </a>
+
+                @endforeach
+                @endif
+                @if (($item->name) == 0)
+
+
+                @foreach($classes->first()->where('school_id', $item->scul)->get() as $class)
+
+                <a href=" " class="font-weight-bolder link">
+                {{ $class->number }}
+                {{ $class->letter }} -
+                {{ $class->year }}
+                </a><br>
+                @endforeach
+
+                @else
+
+                @foreach($classes->first()->where('school_id', $item->scul)->get() as $class)
+
+                <a href=" " class="font-weight-bolder link">
+                {{ $class->number }}
+                {{ $class->letter }} -
+                {{ $class->year }}
+                </a><br>
+                @endforeach
+
+                @endif
+            </td>
+            <td>
+                <a href=" " class="font-weight-bolder link">
+
+                </a>
+            </td>
+
+        </tr>
+        @endforeach
+        </tbody>
+    </table>
+    <x-tables.pagination :items="$products"></x-tables.pagination>
+
+        </x-card>           <div class="card card-custom gutter-b">
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+@endsection
+
