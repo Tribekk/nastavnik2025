@@ -35,6 +35,20 @@
             <div class=" text-primary mb-0">{{ $user->updated_at->format('d.m.Y') }}<br/>{{ $user->updated_at->format('H:i:s') }}</div>
         </td>
 
+        <td class="fit text-center" style="vertical-align: middle;">
+            @if($user->can_be_deleted_by_admin)
+                <form action="{{ route('admin.users.destroy', $user) }}" method="POST" class="d-inline" onsubmit="return confirm('{{ __('Вы действительно хотите удалить пользователя?') }}');">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-icon btn-light-danger btn-sm" title="{{ __('Удалить пользователя') }}">
+                        <i class="la la-times"></i>
+                    </button>
+                </form>
+            @else
+                <i class="la la-minus text-muted"></i>
+            @endif
+        </td>
+
     </tr>
 @endforeach
 </tbody>

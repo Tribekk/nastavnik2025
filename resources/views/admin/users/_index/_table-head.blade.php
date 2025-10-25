@@ -15,5 +15,8 @@
     <th class="fit">
         {{ __('Обновлен') }}
     </th>
+    <th class="fit text-center">
+        {{ __('Удалить') }}
+    </th>
 </tr>
 </thead>

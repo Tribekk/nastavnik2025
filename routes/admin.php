@@ -39,6 +39,7 @@ Route::middleware(['auth', AdminMiddleware::class])->group(function () {
             Route::get('users/login-as/{user}', [UserController::class, 'loginAsUser'])->name('login');
             Route::get('users/create', [UserController::class, 'create'])->name('create');
             Route::post('users', [UserController::class, 'store'])->name('store');
+            Route::delete('users/{user}', [UserController::class, 'destroy'])->name('destroy');
             Route::get('users/teachers', [UserController::class, 'teachers'])->withoutMiddleware(AdminMiddleware::class)->name('teachers');
         });
 

@@ -199,6 +199,15 @@ class User extends Authenticatable implements MustVerifyEmail
         return intval(now()->diffInMonths($this->birth_date) / 12);
     }
 
+    public function getCanBeDeletedByAdminAttribute(): bool
+    {
+        if (null === $this->created_at) {
+            return false;
+        }
+
+        return $this->created_at->lte(Carbon::now()->subYear());
+    }
+
     /**
      * Отформатированное кол-во полных лет
      *
