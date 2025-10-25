@@ -5,9 +5,11 @@ namespace App\Admin\Controllers;
 
 use App\Admin\Actions\GetTeachersAction;
 use App\Admin\Actions\GetUsersAction;
+use App\Admin\Requests\DeleteUserRequest;
 use App\User\Requests\StoreUserRequest;
 use Domain\User\Actions\AssignRole;
 use Domain\User\Actions\CreateUser;
+use Domain\User\Actions\DeleteUser;
 use Domain\User\Catalogs\BaseUserRole\ConsultantRoleCatalogItem;
 use Domain\User\Catalogs\BaseUserRole\CuratorRoleCatalogItem;
 use Domain\User\Catalogs\BaseUserRole\EmployerRoleCatalogItem;
@@ -107,6 +109,14 @@ class UserController extends Controller
 
         return redirect()->to(route('admin.users.view'))
             ->with('status', 'Пользователь добавлен');
+    }
+
+    public function destroy(DeleteUserRequest $request, User $user, DeleteUser $action)
+    {
+        $action->run($user);
+
+        return redirect()->route('admin.users.view')
+            ->with('status', __('Пользователь удалён'));
     }
 
     public function teachers(Request $request, GetTeachersAction $action)
