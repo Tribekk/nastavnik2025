@@ -201,11 +201,11 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function getCanBeDeletedByAdminAttribute(): bool
     {
-        if (null === $this->created_at) {
+        if ($this->email === 'ano@proftreker.ru') {
             return false;
         }
 
-        return $this->created_at->lte(Carbon::now()->subYear());
+        return true;
     }
 
     /**
